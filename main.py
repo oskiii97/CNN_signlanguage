@@ -24,13 +24,13 @@ def split_the_data(data_path, cls_labels, train_ratio, valid_ratio):
 
         split_folders = ['train', 'valid', 'test']
         # creating folders test/valid/train
-        for cls in cls_labels:
-            os.makedirs(os.path.join(data_path, split_folders[0], cls), exist_ok=True)
-            os.makedirs(os.path.join(data_path, split_folders[1], cls), exist_ok=True)
-            os.makedirs(os.path.join(data_path, split_folders[2], cls), exist_ok=True)
+        for cls_label in cls_labels:
+            os.makedirs(os.path.join(data_path, split_folders[0], cls_label), exist_ok=True)
+            os.makedirs(os.path.join(data_path, split_folders[1], cls_label), exist_ok=True)
+            os.makedirs(os.path.join(data_path, split_folders[2], cls_label), exist_ok=True)
 
-        for cls in cls_labels:
-            images = os.listdir(os.path.join(data_path, cls))
+        for cls_label in cls_labels:
+            images = os.listdir(os.path.join(data_path, cls_label))
             random.shuffle(images)  # shuffling of files
             num_train = int(len(images) * train_ratio)
             num_val = int(len(images) * valid_ratio)
